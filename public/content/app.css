@@ -1,0 +1,23 @@
+
+
+body {
+    background-color: #f5f7fb !important;
+}
+
+h1, h2, h3 {
+    font-weight: 600 !important;
+}
+
+.navbar-brand {
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.table thead th {
+    background-color: #343a40 !important;
+    color: #ffffff !important;
+}
+
+main.container {
+  margin-bottom: 80px !important; /* so content doesn't hide behind fixed footer */
+}

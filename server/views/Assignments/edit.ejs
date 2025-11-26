@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<%- include('../partials/main_nav') %>
+
+<main class="container mt-4">
+    <div class="row">
+    <div class="offset-md-2 col-md-8">
+        <h1><%= title %></h1>
+
+        <form action="/assignments/edit/<%= Assignment._id %>" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control"
+                    value="<%= Assignment.title %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Course</label>
+            <input type="text" name="course" class="form-control"
+                    value="<%= Assignment.course %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Due Date</label>
+            <input type="date" name="dueDate" class="form-control"
+                    value="<%= Assignment.dueDate ? Assignment.dueDate.toISOString().substring(0,10) : '' %>"
+                    required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-select">
+            <option <%= Assignment.status === 'Not Started' ? 'selected' : '' %>>Not Started</option>
+            <option <%= Assignment.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+            <option <%= Assignment.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Notes</label>
+            <textarea name="notes" class="form-control" rows="3"><%= Assignment.notes %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/assignments" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
